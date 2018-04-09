@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <script src="assets/regulardata.js"></script>
+        <script src="assets/playoffdata.js"></script>
 
 </head>
 
@@ -70,14 +70,12 @@
         <div class="content inside-page collection">
             <div class="breadcrumb"><a href="index.html">Home</a> / Stats</div>
             <div class="pull-right sortby">
-                <select id="selectRegular" onchange="changeDataShown()">
+                <select id="selectPlayOff" onchange="changeDataShown()">
                     <option class="table table-responsive" value="perGame" selected>Per Game</option>
                     <option class="table table-responsive" value="totals">Totals</option>
                     <option value="per36Minutes">Per 36 Minutes</option>
                     <option value="per100Poss">Per 100 Poss</option>
-                    <option value="advanced">Advanced</option>
- <!--                    <option value="shooting">Shooting</option>
-                    <option value="playbyplay">Play by play</option> -->
+                    <!-- <option value="advanced">Advanced</option> -->
                 </select>
             </div>
             <h2 class="title">Stats</h2>

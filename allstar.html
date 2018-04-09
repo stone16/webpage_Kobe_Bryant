@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Solute to Kobe Bryant</title>
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <!-- font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- uniform -->
+    <link type="text/css" rel="stylesheet" href="assets/uniform/css/uniform.default.min.css" />
+    <!-- animate.css -->
+    <link rel="stylesheet" href="assets/wow/animate.css" />
+    <!-- favico -->
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="assets/regulardata.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <nav class="navbar  navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/kobe-logo.png"  alt="logo"><h1 class="hide">Solute to Kobe Bryant</h1></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stats <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="regular.html">Regular games</a></li>
+                            <li><a href="all-star.html">All-star games</a></li>
+                            <li><a href="playoff.html">Palyoffs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="highlight.html">Highlight</a></li>
+                    <li><a href="about.html">about</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon glyphicon-calendar"></span> Game Log</a></li>
+                </ul>
+            </div>
+            <!-- Wnavbar-collapse -->
+        </div>
+        <!-- container-fluid -->
+    </nav>
+    <!-- header -->
+    <div class="container">
+        <!-- form -->
+        <div class="content inside-page collection">
+            <div class="breadcrumb"><a href="index.html">Home</a> / Stats</div>
+            <!--             <div class="pull-right sortby">
+                <select id="selectAllStar" onchange="changeDataShown()">
+                    <option class="table table-responsive" value="perGame" selected>Per Game</option>
+                    <option class="table table-responsive" value="totals">Totals</option>
+                    <option value="per36Minutes">Per 36 Minutes</option>
+                    <option value="per100Poss">Per 100 Poss</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="shooting">Shooting</option>
+                    <option value="playbyplay">Play by play</option>
+                </select>
+            </div> -->
+            <h2 class="title">Stats</h2>
+            <div class="row table table-responsive">
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th title="Field #1">Season</th>
+                            <th title="Field #2">Age</th>
+                            <th title="Field #3">Tm</th>
+                            <th title="Field #4">Lg</th>
+                            <th title="Field #5">Pos</th>
+                            <th title="Field #6">G</th>
+                            <th title="Field #7">GS</th>
+                            <th title="Field #8">MP</th>
+                            <th title="Field #9">FG</th>
+                            <th title="Field #10">FGA</th>
+                            <th title="Field #11">FG%</th>
+                            <th title="Field #12">3P</th>
+                            <th title="Field #13">3PA</th>
+                            <th title="Field #14">3P%</th>
+                            <th title="Field #15">FT</th>
+                            <th title="Field #16">FTA</th>
+                            <th title="Field #17">FT%</th>
+                            <th title="Field #18">ORB</th>
+                            <th title="Field #19">TRB</th>
+                            <th title="Field #20">AST</th>
+                            <th title="Field #21">STL</th>
+                            <th title="Field #22">BLK</th>
+                            <th title="Field #23">TOV</th>
+                            <th title="Field #24">PF</th>
+                            <th title="Field #25">PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1997-98</td>
+                            <td align="right">19</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>22:00</td>
+                            <td align="right">7</td>
+                            <td align="right">16</td>
+                            <td align="right">.438</td>
+                            <td align="right">2</td>
+                            <td align="right">3</td>
+                            <td align="right">.667</td>
+                            <td align="right">2</td>
+                            <td align="right">2</td>
+                            <td align="right">1.000</td>
+                            <td align="right">2</td>
+                            <td align="right">6</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td align="right">18</td>
+                        </tr>
+                        <tr>
+                            <td>1999-00</td>
+                            <td align="right">21</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>28:00</td>
+                            <td align="right">7</td>
+                            <td align="right">16</td>
+                            <td align="right">.438</td>
+                            <td align="right">1</td>
+                            <td align="right">4</td>
+                            <td align="right">.250</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td align="right">3</td>
+                            <td align="right">2</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">3</td>
+                            <td align="right">15</td>
+                        </tr>
+                        <tr>
+                            <td>2000-01</td>
+                            <td align="right">22</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>30:00</td>
+                            <td align="right">9</td>
+                            <td align="right">17</td>
+                            <td align="right">.529</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">.500</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">2</td>
+                            <td align="right">4</td>
+                            <td align="right">7</td>
+                            <td align="right">1</td>
+                            <td align="right">0</td>
+                            <td align="right">3</td>
+                            <td align="right">3</td>
+                            <td align="right">19</td>
+                        </tr>
+                        <tr>
+                            <td>2001-02</td>
+                            <td align="right">23</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>30:00</td>
+                            <td align="right">12</td>
+                            <td align="right">25</td>
+                            <td align="right">.480</td>
+                            <td align="right">0</td>
+                            <td align="right">4</td>
+                            <td align="right">.000</td>
+                            <td align="right">7</td>
+                            <td align="right">7</td>
+                            <td align="right">1.000</td>
+                            <td align="right">2</td>
+                            <td align="right">5</td>
+                            <td align="right">5</td>
+                            <td align="right">1</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right">2</td>
+                            <td align="right">31</td>
+                        </tr>
+                        <tr>
+                            <td>2002-03</td>
+                            <td align="right">24</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>36:00</td>
+                            <td align="right">8</td>
+                            <td align="right">17</td>
+                            <td align="right">.471</td>
+                            <td align="right">3</td>
+                            <td align="right">5</td>
+                            <td align="right">.600</td>
+                            <td align="right">3</td>
+                            <td align="right">6</td>
+                            <td align="right">.500</td>
+                            <td align="right">2</td>
+                            <td align="right">7</td>
+                            <td align="right">6</td>
+                            <td align="right">3</td>
+                            <td align="right">2</td>
+                            <td align="right">5</td>
+                            <td align="right">5</td>
+                            <td align="right">22</td>
+                        </tr>
+                        <tr>
+                            <td>2003-04</td>
+                            <td align="right">25</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>35:21</td>
+                            <td align="right">9</td>
+                            <td align="right">12</td>
+                            <td align="right">.750</td>
+                            <td align="right">2</td>
+                            <td align="right">3</td>
+                            <td align="right">.667</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">.000</td>
+                            <td align="right">1</td>
+                            <td align="right">4</td>
+                            <td align="right">4</td>
+                            <td align="right">5</td>
+                            <td align="right">1</td>
+                            <td align="right">6</td>
+                            <td align="right">3</td>
+                            <td align="right">20</td>
+                        </tr>
+                        <tr>
+                            <td>2004-05</td>
+                            <td align="right">26</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>29:21</td>
+                            <td align="right">7</td>
+                            <td align="right">14</td>
+                            <td align="right">.500</td>
+                            <td align="right">2</td>
+                            <td align="right">5</td>
+                            <td align="right">.400</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">3</td>
+                            <td align="right">6</td>
+                            <td align="right">7</td>
+                            <td align="right">3</td>
+                            <td align="right">1</td>
+                            <td align="right">4</td>
+                            <td align="right">5</td>
+                            <td align="right">16</td>
+                        </tr>
+                        <tr>
+                            <td>2005-06</td>
+                            <td align="right">27</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>26:15</td>
+                            <td align="right">4</td>
+                            <td align="right">11</td>
+                            <td align="right">.364</td>
+                            <td align="right">0</td>
+                            <td align="right">5</td>
+                            <td align="right">.000</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">0</td>
+                            <td align="right">7</td>
+                            <td align="right">8</td>
+                            <td align="right">3</td>
+                            <td align="right">0</td>
+                            <td align="right">3</td>
+                            <td align="right">5</td>
+                            <td align="right">8</td>
+                        </tr>
+                        <tr>
+                            <td>2006-07</td>
+                            <td align="right">28</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>28:09</td>
+                            <td align="right">13</td>
+                            <td align="right">24</td>
+                            <td align="right">.542</td>
+                            <td align="right">3</td>
+                            <td align="right">9</td>
+                            <td align="right">.333</td>
+                            <td align="right">2</td>
+                            <td align="right">2</td>
+                            <td align="right">1.000</td>
+                            <td align="right">1</td>
+                            <td align="right">5</td>
+                            <td align="right">6</td>
+                            <td align="right">6</td>
+                            <td align="right">0</td>
+                            <td align="right">4</td>
+                            <td align="right">1</td>
+                            <td align="right">31</td>
+                        </tr>
+                        <tr>
+                            <td>2007-08</td>
+                            <td align="right">29</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>2:52</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                        </tr>
+                        <tr>
+                            <td>2008-09</td>
+                            <td align="right">30</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>29:14</td>
+                            <td align="right">12</td>
+                            <td align="right">23</td>
+                            <td align="right">.522</td>
+                            <td align="right">3</td>
+                            <td align="right">8</td>
+                            <td align="right">.375</td>
+                            <td align="right">0</td>
+                            <td align="right">0</td>
+                            <td align="right"></td>
+                            <td align="right">1</td>
+                            <td align="right">4</td>
+                            <td align="right">4</td>
+                            <td align="right">4</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">0</td>
+                            <td align="right">27</td>
+                        </tr>
+                        <tr>
+                            <td>2009-10</td>
+                            <td align="right">31</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td> </td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                        </tr>
+                        <tr>
+                            <td>2010-11</td>
+                            <td align="right">32</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>29:21</td>
+                            <td align="right">14</td>
+                            <td align="right">26</td>
+                            <td align="right">.538</td>
+                            <td align="right">2</td>
+                            <td align="right">7</td>
+                            <td align="right">.286</td>
+                            <td align="right">7</td>
+                            <td align="right">8</td>
+                            <td align="right">.875</td>
+                            <td align="right">10</td>
+                            <td align="right">14</td>
+                            <td align="right">3</td>
+                            <td align="right">3</td>
+                            <td align="right">0</td>
+                            <td align="right">4</td>
+                            <td align="right">2</td>
+                            <td align="right">37</td>
+                        </tr>
+                        <tr>
+                            <td>2011-12</td>
+                            <td align="right">33</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>34:48</td>
+                            <td align="right">9</td>
+                            <td align="right">17</td>
+                            <td align="right">.529</td>
+                            <td align="right">2</td>
+                            <td align="right">5</td>
+                            <td align="right">.400</td>
+                            <td align="right">7</td>
+                            <td align="right">8</td>
+                            <td align="right">.875</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">27</td>
+                        </tr>
+                        <tr>
+                            <td>2012-13</td>
+                            <td align="right">34</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>27:36</td>
+                            <td align="right">4</td>
+                            <td align="right">9</td>
+                            <td align="right">.444</td>
+                            <td align="right">0</td>
+                            <td align="right">3</td>
+                            <td align="right">.000</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">.500</td>
+                            <td align="right">2</td>
+                            <td align="right">4</td>
+                            <td align="right">8</td>
+                            <td align="right">2</td>
+                            <td align="right">2</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">9</td>
+                        </tr>
+                        <tr>
+                            <td>2013-14</td>
+                            <td align="right">35</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td> </td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                        </tr>
+                        <tr>
+                            <td>2014-15</td>
+                            <td align="right">36</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SG</td>
+                            <td align="right"></td>
+                            <td align="right">0</td>
+                            <td> </td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                            <td align="right"></td>
+                        </tr>
+                        <tr>
+                            <td>2015-16</td>
+                            <td align="right">37</td>
+                            <td>LAL</td>
+                            <td>NBA</td>
+                            <td>SF</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td>25:49</td>
+                            <td align="right">4</td>
+                            <td align="right">11</td>
+                            <td align="right">.364</td>
+                            <td align="right">1</td>
+                            <td align="right">5</td>
+                            <td align="right">.200</td>
+                            <td align="right">1</td>
+                            <td align="right">2</td>
+                            <td align="right">.500</td>
+                            <td align="right">1</td>
+                            <td align="right">6</td>
+                            <td align="right">7</td>
+                            <td align="right">1</td>
+                            <td align="right">0</td>
+                            <td align="right">1</td>
+                            <td align="right">1</td>
+                            <td align="right">10</td>
+                        </tr>
+                        <tr>
+                            <td>Career</td>
+                            <td align="right"></td>
+                            <td> </td>
+                            <td>NBA</td>
+                            <td> </td>
+                            <td align="right">15</td>
+                            <td align="right">15</td>
+                            <td>415</td>
+                            <td align="right">119</td>
+                            <td align="right">238</td>
+                            <td align="right">.500</td>
+                            <td align="right">22</td>
+                            <td align="right">68</td>
+                            <td align="right">.324</td>
+                            <td align="right">30</td>
+                            <td align="right">38</td>
+                            <td align="right">.789</td>
+                            <td align="right">28</td>
+                            <td align="right">75</td>
+                            <td align="right">70</td>
+                            <td align="right">38</td>
+                            <td align="right">6</td>
+                            <td align="right">35</td>
+                            <td align="right">35</td>
+                            <td align="right">290</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <script type='text/javascript' src='assets/regulardata.js'></script> -->
+                <!-- product -->
+                <!-- <div class="col-sm-4">
+                    <div class="product">
+                        <a href="#">
+                                   <img src="images/products/81.png" class="img-responsive"  alt="product">
+                                   <span class="price special">$113.63</span>                                   
+                                   </a>
+                        <div class="overlay">
+                            <div class="detail">
+                                <h4><a href="#">Mollicitudin Lobortis</a></h4>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <a href="product.php" class="btn btn-default view animated fadeInLeft"><i class="fa fa-search-plus"></i> View Detail</a>
+                                <a href="#" class="btn btn-default cart animated fadeInRight"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" class="btn btn-default wishlist  animated fadeInRight"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- product -->
+            </div>
+            <!--                      <div class="center">
+                     <ul class="pagination">
+                     <li class="disabled"><a href="#">«</a></li>
+                     <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                     <li><a href="#">2</a></li>
+                     <li><a href="#">3</a></li>
+                     <li><a href="#">4</a></li>
+                     <li><a href="#">5</a></li>
+                     <li><a href="#">»</a></li>
+                     </ul>
+                     </div> -->
+        </div>
+        <!-- form -->
+    </div>
+    <!-- footer -->
+    <div class="footer navbar-fixed-bottom" role="navigation">
+        <div class="pull-left">
+            <div class="links">
+                <a href="about.html">About </a>
+                <a href="contact.html">Contact </a>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <script src="assets/jquery.js"></script>
+    <!-- wow script -->
+    <script src="assets/wow/wow.min.js"></script>
+    <!-- uniform -->
+    <script src="assets/uniform/js/jquery.uniform.js"></script>
+    <!-- boostrap -->
+    <script src="assets/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <!-- jquery mobile -->
+    <script src="assets/mobile/touchSwipe.min.js"></script>
+    <!-- jquery mobile -->
+    <script src="assets/respond/respond.js"></script>
+    <!-- jQuery easing plugin -->
+    <script src="assets/form/jquery.easing.min.js" type="text/javascript"></script>
+    <!-- custom script -->
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
